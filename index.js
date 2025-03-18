@@ -1,0 +1,16 @@
+import { ApolloServer } from '@apollo/server';
+import { startStandaloneServer } from '@apollo/server/standalone';
+import {typeDefs} from './schema';
+const PORT = 4000;
+
+const server = new ApolloServer({
+    typeDefs, // The schema
+    resolvers // handler for incoming requests
+});
+
+const {url} = await startStandaloneServer(server, {
+    listen: {port: PORT }
+});
+
+console.log('Server running on port:', PORT);
+
