@@ -15,6 +15,9 @@ const resolvers = {
         },
         reviews() {
             return _db.reviews
+        },
+        review(_, args) {
+            return _db.reviews.find(review => this.review.id === args.id)
         }
     }
 }
